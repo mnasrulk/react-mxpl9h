@@ -26,8 +26,18 @@ const AboutMenu = ({
 
       <div style={{paddingTop: '1.5em', position:"relative"}}>
         <Route exact path={`/artist/${id}`}>
-          
+          <ArtistRow title='Popular' display='list' list={tracks} playContextTrack={playContextTrack}/>
+          <ArtistRow title='Albums' display='grid' list={album}/>
+          <ArtistRow title='Singles and EPs' display='grid' list={single}/>
+          <ArtistRow title='Compilations' display='grid' list={appear}/>
+          <ArtistRow title='Appears On' display='grid' list={compilation}/>
+        </Route>
+        <Route exact path={`/artist/${id}/related`}>
+          <RowGrid playlist={related}/>
+        </Route>
       </div>
     </>
-  )
+  );
 }
+
+export default AboutMenu
